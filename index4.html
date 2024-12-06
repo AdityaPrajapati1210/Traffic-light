@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            height: 300px;
+            width: 300px;
+            background-color: gray;
+            box-shadow: 10px 10px 100px 20px gray;
+            border-radius: 50%;
+        }
+        .section{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            gap: 100px;
+        }
+        *{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+
+        <div id="box" class="red " draggable="true">
+            
+        </div>
+        <div id="box" class="yellow" draggable="true">
+            
+        </div>
+        <div id="box" class="green" draggable="true">
+
+        </div>
+    </div>
+    <script>
+        // Get all the traffic light elements
+const redLight = document.querySelector('.red');
+const yellowLight = document.querySelector('.yellow');
+const greenLight = document.querySelector('.green');
+
+// Function to turn all lights off
+function turnOffLights() {
+    redLight.style.backgroundColor = 'gray';
+    yellowLight.style.backgroundColor = 'gray';
+    greenLight.style.backgroundColor = 'gray';
+}
+
+// Function to activate a specific light
+function activateLight(light, color) {
+    turnOffLights(); // Turn off all lights first
+    light.style.backgroundColor = color; // Turn on the selected light
+}
+
+// Event listeners to toggle lights
+redLight.addEventListener('click', () => activateLight(redLight, 'red'));
+yellowLight.addEventListener('click', () => activateLight(yellowLight, 'yellow'));
+greenLight.addEventListener('click', () => activateLight(greenLight, 'green'));
+
+// Optional: Start with the red light active
+activateLight(redLight, 'red');
+
+    </script>
+</body>
+</html>
